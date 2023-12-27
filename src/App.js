@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { Routes, Route , } from 'react-router-dom';
+import LoginPage from './pages/Auth/LoginPage';
+import RegisterPage from './pages/Auth/RegisterPage';
+import ProfilePage from './pages/Profile/ProfilePage';
+import AuthGuard from './guards/AuthGuard';
+import Navbar from './atoms/Navbar/Navbar';
+import Footer from './atoms/Footer/Footer';
+import { useAuthContext } from './contexts/authContext';
 function App() {
-  return (
+
+  const { isLoggedIn } = useAuthContext();
+
+  return (    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {isLoggedIn && <Navbar />}
+      <Routes>        
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />        
+          <Route path="/" element={<AuthGuard Component={ProfilePage} />} />                
+      </Routes>
+      <Footer />
+
     </div>
   );
 }

@@ -1,0 +1,29 @@
+.profile-item{
+    margin-top: -10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 1rem;    
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 1px 2px 1.5rem rgba(0,0,0,0.7);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    z-index: 100000;
+    &:hover{
+        transform: translateY(-0.5rem);
+        box-shadow: 0 0 1rem rgba(0,0,0,0.1);
+    }
+    .profile-item__image{
+        width: 200px;
+        height: 12rem;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-top: -10%;        
+    }
+    .address-item{
+        margin-bottom: 5%;
+    }
+}
